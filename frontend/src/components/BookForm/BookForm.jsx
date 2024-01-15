@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
-import addBook from "../../redux/books/actionCreators";
+import { addBook, deleteBook } from "../../redux/books/actionCreators";
 import "./BookForm.css";
 
 const BookForm = () => {
@@ -20,7 +20,7 @@ const BookForm = () => {
       dispatch(addBook(book));
       setTitle("");
       setAuthor("");
-    }
+    } else dispatch(deleteBook());
   };
 
   return (
